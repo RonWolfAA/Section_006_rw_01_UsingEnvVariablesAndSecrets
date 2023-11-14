@@ -5,13 +5,13 @@ on:
       - main
       - dev
 env:
-  MONGODB_DB_NAME: gha-demo
+  MONGODB_DB_NAME: ${{ secrets.MONGODB_DB_NAME }}
 jobs:
   test:
     env:
-      MONGODB_CLUSTER_ADDRESS: cluster0.yeeooa3.mongodb.net
-      MONGODB_USERNAME: AppUser
-      MONGODB_PASSWORD: 6AIFW32GK50zCh87
+      MONGODB_CLUSTER_ADDRESS: ${{ secrets.MONGODB_CLUSTER_ADDRESS }}
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
